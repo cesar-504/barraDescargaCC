@@ -1,0 +1,62 @@
+<style>
+
+    .barraDiv{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+        right: 0;
+        top: 0;
+        border-bottom:1px;
+        border-bottom-color:#b7b7b7;
+        border-bottom-style:solid;
+        background-color: #333;
+
+    }
+    .barraDiv ul {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+        font-family:Helvetica,sans-serif;
+        background-color: #333;
+        height: 30px;
+        width:970px;
+}
+   .barraDiv ul li {
+       display: inline-block;
+       height: 30px;
+       padding: 0;
+
+    }
+
+    .barraDiv a:link, a:visited {
+        display: block;
+        height: 26px;
+        padding: 2px;
+        color:#eee;
+        font-weight: bold;
+        background-color: #333;
+        text-decoration: none;
+    }
+    .barraDiv a:hover, a:active {
+        background-color: #eee;
+        color:#333;
+
+        border-bottom:3px;
+        border-bottom-color:#333;
+        border-bottom-style:solid;
+
+}
+
+</style>
+
+<div class=barraDiv>
+    <ul>
+      <li><a href="#" onclick="descargatt">Descargar Todo</a></li>
+      <li><a href="#" onclick="descargatt">Descargar Seleccionados</a></li>
+      <li><a href="#">Descargar pagina actual</a></li>
+      <li><a href="#">Cerrar barra</a></li>
+    </ul>
+
+</div>
