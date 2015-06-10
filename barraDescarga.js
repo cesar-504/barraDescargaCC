@@ -22,18 +22,18 @@ function descargatt(){
     }
 
 
-};
+}
 function abrirTab (url) {
     var win = window.open(url, '_blank');
     win.focus();
-};
+}
 function cargarAjax (id,url){
     var xmlhttp =new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4)
             document.getElementById(id).innerHTML=xmlhttp.responseText;
-        else
-            document.getElementById(id).innerHTML= '<div> Cargando</div>';
+        //else
+        //    document.getElementById(id).innerHTML= '<div> Cargando</div>';
 
     }
     xmlhttp.open("GET",url,true);
@@ -48,7 +48,7 @@ function cargarBarra (){
     cargarAjax(barra.id,htmlBarra);
 }
 function cerrar(){
-    document.getElementById("body").removeChild(barraDescargaCC);
+    document.body.removeChild(barraDescargaCC);
 }
 function descargaSelect (){}
 function descargaPag(){}
