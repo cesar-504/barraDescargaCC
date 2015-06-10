@@ -1,5 +1,5 @@
 var barra= document.getElementById("barraDescargaCC");
-var htmlBarra="https://cdn.rawgit.com/cesar-504/barraDescargaCC/dev/barraDescarga.html"
+var htmlBarra="https://cdn.rawgit.com/cesar-504/barraDescargaCC/dev/barraDescarga.html";
 var cssBarra="";
 if(!barra)//comprobar si la barra ya se ha creado
     cargarBarra();
@@ -48,8 +48,7 @@ function cargarBarra (){
     cargarAjax(barra.id,htmlBarra);
 }
 function cerrar(){
-    var b= document.getElementById("barraDescargaCC");
-    b.parentNode.removeChild(b);
+    document.getElementById("body").removeChild(barraDescargaCC);
 }
 function descargaSelect (){}
 function descargaPag(){}
