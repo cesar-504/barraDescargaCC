@@ -31,7 +31,7 @@ function descargatt(){
 
 }
 function agregarScript(url){
-    var s2 = document.createElement('script');
+    var s = document.createElement('script');
     s.type = 'text/javascript';
     s.src = url;
     document.body.insertBefore(s, document.body.firstChild);
