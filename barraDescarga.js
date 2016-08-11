@@ -1,11 +1,11 @@
+agregarScript('https://cdn.rawgit.com/eligrey/FileSaver.js/1.3.2/FileSaver.min.js');
+agregarScript('https://cdn.rawgit.com/Stuk/jszip/v3.1.1/dist/jszip.min.js');
 var barra= document.getElementById("barraDescargaCC");
 var htmlBarra="https://cdn.rawgit.com/cesar-504/barraDescargaCC/dev/barraDescarga.html";
 
- var s2 = document.createElement('script');
-    s2.type = 'text/javascript';
-    s2.src = 'https://cdn.rawgit.com/eligrey/FileSaver.js/1.3.2/FileSaver.min.js';
-    document.body.insertBefore(s2, document.body.firstChild);
+ 
 var cssBarra="";
+var fileArray=[];
 if(!barra)//comprobar si la barra ya se ha creado
     cargarBarra();
 document.body.appendChild(barra);
@@ -22,11 +22,19 @@ function descargatt(){
         var mensaje = String(doc[x].onclick);
         var link = mensaje.split("'");
         links[x] ="https://portalcfdi.facturaelectronica.sat.gob.mx/"+link[1];
-        abrirTab(links[x]);
+        //abrirTab(links[x]);
+        cargarArchivo(links[x]);
+        
         console.log("link : "+x +" : "+ links[x]);
     }
 
 
+}
+function agregarScript(url){
+    var s2 = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = url;
+    document.body.insertBefore(s, document.body.firstChild);
 }
 function abrirTab (url) {
     var win = window.open(url, '_blank');
@@ -46,6 +54,17 @@ function cargarAjax (id,url){
     xmlhttp.send();
 
 }
+
+function cargarArchivo(url){
+    var oReq = new XMLHttpRequest();
+    oReq.open("GET", url, true);
+    oReq.responseType = "blob";
+    oReq.onload = function (oEvent) {
+        var file = oReq.response; // Note: not oReq.responseText
+        if (file) {
+            fileArray.append(file);
+        }
+}
 function cargarBarra (){
     barra = document.createElement("div");
     barra.setAttributeNode(document.createAttribute("id"));
@@ -57,3 +76,12 @@ function cerrar(){
 }
 function descargaSelect (){}
 function descargaPag(){}
+function crearZip(files){
+    var zip = new JSZip();
+    for (var i=0; i<files.length; i++) {
+        zip.file(""+i,files[i]);
+        
+    }
+    var content = zip.generate({type:"blob"});
+    saveAs(content, "Archivos.zip");
+}
