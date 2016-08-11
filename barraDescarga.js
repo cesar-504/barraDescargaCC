@@ -1,5 +1,5 @@
 var barra= document.getElementById("barraDescargaCC");
-var htmlBarra="https://cdn.rawgit.com/cesar-504/barraDescargaCC/master/barraDescarga.html";
+var htmlBarra="https://cdn.rawgit.com/cesar-504/barraDescargaCC/dev/barraDescarga.html";
 var cssBarra="";
 if(!barra)//comprobar si la barra ya se ha creado
     cargarBarra();
