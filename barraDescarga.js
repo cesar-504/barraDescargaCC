@@ -17,17 +17,17 @@ function descargatt(){
     var doc= document.getElementsByClassName("BtnDescarga");
     var links =[];
     console.log(doc);
-    for (x=0;x<doc.length;x++)
+    for (var x=0;x<doc.length;x++)
     {
         var mensaje = String(doc[x].onclick);
         var link = mensaje.split("'");
         links[x] ="https://portalcfdi.facturaelectronica.sat.gob.mx/"+link[1];
         //abrirTab(links[x]);
-        cargarArchivo(links[x]);
+        cargarArchivo(links[x],links.length);
         
-        console.log("link : "+x +" : "+ links[x]);
+        //console.log("link : "+x +" : "+ links[x]);
     }
-
+    crearZip(fileArray);
 
 }
 function agregarScript(url){
@@ -55,7 +55,7 @@ function cargarAjax (id,url){
 
 }
 
-function cargarArchivo(url){
+function cargarArchivo(url,total){
     var oReq = new XMLHttpRequest();
     oReq.open("GET", url, true);
     oReq.responseType = "blob";
@@ -63,6 +63,9 @@ function cargarArchivo(url){
         var file = oReq.response; // Note: not oReq.responseText
         if (file) {
             fileArray.push(file);
+            if(fileArray.length===total){
+                
+            }
         }
         
     };
@@ -82,9 +85,15 @@ function descargaPag(){}
 function crearZip(files){
     var zip = new JSZip();
     for (var i=0; i<files.length; i++) {
-        zip.file(""+i,files[i]);
+        zip.file(i,files[i]);
         
     }
-    var content = zip.generate({type:"blob"});
-    saveAs(content, "Archivos.zip");
+    console.log(files);
+    zip.generateAsync({type:"blob"}).then(function(content) {
+    // see FileSaver.js
+    saveAs(content, "example.zip");
+});
+}
+function dispDescarcaga(){
+    
 }
