@@ -62,7 +62,7 @@ function cargarArchivo(url){
     oReq.onload = function (oEvent) {
         var file = oReq.response; // Note: not oReq.responseText
         if (file) {
-            fileArray.append(file);
+            fileArray.push(file);
         }
         
     };
