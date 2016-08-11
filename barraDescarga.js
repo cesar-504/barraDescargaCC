@@ -64,6 +64,9 @@ function cargarArchivo(url){
         if (file) {
             fileArray.append(file);
         }
+        
+    };
+    oReq.send(null);
 }
 function cargarBarra (){
     barra = document.createElement("div");
