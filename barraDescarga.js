@@ -1,5 +1,10 @@
 var barra= document.getElementById("barraDescargaCC");
 var htmlBarra="https://cdn.rawgit.com/cesar-504/barraDescargaCC/dev/barraDescarga.html";
+
+ var s2 = document.createElement('script');
+    s2.type = 'text/javascript';
+    s2.src = 'https://cdn.rawgit.com/eligrey/FileSaver.js/1.3.2/FileSaver.min.js';
+    document.body.insertBefore(s, document.body.firstChild);
 var cssBarra="";
 if(!barra)//comprobar si la barra ya se ha creado
     cargarBarra();
